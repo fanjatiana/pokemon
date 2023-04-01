@@ -17,12 +17,8 @@ const specialAttackEvoli = new Attack("Anticipation", 15);
 
 const evoli = new Pokemon(133, "Evoli", "30 cm", "6.5kg", "Normal", 70, attackEvoli, specialAttackEvoli);
 
-
-
-
 // Tirage au sort
 const epicBattle = () => {
-    console.log(pikachu.pv > 0 && evoli.pv > 0)
     while (pikachu.pv > 0 && evoli.pv > 0){
         pikachu.pokemonAttack(evoli);
         console.log("pikachu attaque")
@@ -51,6 +47,17 @@ if (startMatch === 1) {
 
 
 
+
+// front ajout dynamique des cartes pokémons
+
+/*const pokemonCard = document.getElementById("pokemon-card");
+
+const arrayPokemon = [pikachu,evoli];
+console.log(arrayPokemon);
+
+arrayPokemon.map((pokemon)=>{
+    console.log(pokemon)
+})*/
 
 
 

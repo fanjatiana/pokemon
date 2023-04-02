@@ -1,6 +1,7 @@
 export default class Pokemon {
-    constructor(id, name, size, weight, type, pv, smallattack, specialAttack) {
+    constructor(id, img, name, size, weight, type, pv, smallattack, specialAttack) {
         this.id = id;
+        this.img = img;
         this.name = name;
         this.size = size;
         this.weight = weight;

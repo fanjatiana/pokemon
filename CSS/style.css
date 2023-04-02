@@ -1,0 +1,200 @@
+body {
+    box-sizing: border-box;
+    background-color: rgb(155, 6, 6);
+}
+
+
+header h1 {
+    text-align: center;
+    color: yellow;
+    font-size: 3em;
+}
+
+h3,
+p {
+    margin: 0;
+}
+
+main {
+    height: 100%;
+    width: 90%;
+    margin: auto;
+}
+
+/* cartes pokemon */
+#pokemon-card {
+    width: 100%;
+
+
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 400px;
+    height: 600px;
+    margin-bottom: 2em;
+    border: 3px rgb(32, 30, 30) solid;
+    box-shadow: #1212128c 10px 5px 10px;
+    background-color: rgb(221, 189, 8);
+    border-radius: 10px;
+}
+
+
+/* section identité du pokemon : img + nom */
+.pokemon-identity {
+    border-bottom: 2px black solid;
+    display: flex;
+    flex-direction: column-reverse;
+    height: 300px;
+    background-color: #fff;
+    border-radius: 10px 10px 0 0;
+    padding-top: 1em;
+}
+
+.pokemon-identity>div {
+    height: 80%;
+}
+
+.pokemon-name h2 {
+    height: 20%;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.pokemon-name {
+    text-align: center;
+}
+
+.pokemon-identity img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* section caractéristiques */
+#features {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    margin-top: 1em;
+}
+
+#features h2,
+h3,
+h4 {
+    text-align: center;
+    margin: 0;
+}
+
+#features div {
+    width: 95%;
+    margin: 0.6em auto;
+}
+
+.features-infos>div {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* section type d'attaque */
+.attack-type {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px black solid;
+}
+
+.attack-type div {
+    width: 95%;
+}
+
+.small-attack>p,
+.super-attack>p {
+    margin-top: 0.5em;
+}
+
+.small-attack span,
+.super-attack span {
+    font-weight: bold;
+}
+
+.small-attack {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.super-attack {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+/*bouton start battle */
+.btn {
+    display: flex;
+    justify-content: center;
+}
+
+.btn button {
+    color: #050505;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 2em;
+    padding: 15px;
+    border-radius: 37px;
+    background: rgb(131, 58, 180);
+    background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 0%, rgba(252, 247, 69, 1) 100%);
+}
+
+/* div affichage des résultats */
+#result-battle {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    margin: 1em auto;
+}
+
+#result-battle p {
+    font-size: 2em;
+    animation-duration: .8s;
+    animation-name: clignoter;
+    animation-iteration-count: infinite;
+    transition: none;
+}
+
+@keyframes clignoter {
+    0% {
+        opacity: 1;
+    }
+
+    40% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/*footer*/
+footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+}
+
+footer p {
+    color: #fff;
+    font-size: 1.3em;
+}
+
+.heart {
+    color: yellow;
+}

@@ -10,36 +10,45 @@ export default class Pokemon {
         this.specialAttack = specialAttack;
     }
 
-    pokemonAttack(cible) {
-
+    pokemonAttack(cible, pvPokemon) {
         let attack = "";
+        const pvCritik = pvPokemon * 0.2;
 
-        // différentes attaques en fonction des points de vie de pikachu ( si - 20%)
-        const restPVCritik = this.pv * 0.2;
-        console.log(`utilise sa speciale attaque si le pv d' ${this.name} atteind les ${restPVCritik}`)
+      
 
-        if (this.pv <= restPVCritik) {
-            attack = this.specialAttack
+        // gestion des différentes attaques en fonction des points de vie de pikachu ( si - 20%)
+        console.log(` pour info le pv critique de  ${this.name} est de ${pvCritik}`)
+        if (this.pv <= pvCritik) {
+
+            attack = this.specialAttack;
+            console.log(`  ${this.name} utilise sa speciale attaque car son pv a atteind les ${pvCritik}`)
 
         } else {
             attack = this.smallattack;
+            console.log(`${this.name} attaque ${cible.name} avec son attaque ${attack.name}`);
         }
-        console.log(`${this.name} attaque ${cible.name} avec son attaque ${attack.name}`);
 
-        const attackCritical = attack.isCriticalAttack();
-        attackCritical ? console.log("attaque critique!!!!") : console.log("attaque normale...")
-        const degatsValue = attack.nbDamage;
-        const degatsValueWithCC = degatsValue * 2;
-        const finalDamage = attackCritical ? degatsValueWithCC : degatsValue
-        // reste de points de vie de la cible 
-        console.log(`${this.name} enlève ${finalDamage} pv à ${cible.name}`);
-        let pvCible = cible.pv - finalDamage;
-        cible.pv = pvCible
+        this.pokemonCriticalAttack(cible,attack)
+      
+    }
 
-        if (pvCible <= 0) {
-            console.log(cible + " " + "est KO !")
-        } else {
-            console.log(`il reste à  ${ cible.name} ${pvCible} points de vie`);
-        }
+    pokemonCriticalAttack(pokemonTarget,objectAttack){
+          // gestion de l'attaque critique (10% de chance)
+          const isCriticalAttack = objectAttack.ramdomCriticalAttack();
+          isCriticalAttack ? console.log(`${this.name} utilise son attaque critique (il avait 10% de chance de l'utiliser)`) : console.log(`${this.name} utilise son attaque normale`)
+  
+          const degatsValue = objectAttack.nbDamage;
+          const degatsValueWithCriticalAttack = degatsValue * 2;
+          const nbFinalDamage = isCriticalAttack ? degatsValueWithCriticalAttack : degatsValue
+          console.log(`${this.name} enlève ${nbFinalDamage} pv à ${pokemonTarget.name}`);
+          let pvPokemonTargetAfterDamages = pokemonTarget.pv - nbFinalDamage;
+          pokemonTarget.pv = pvPokemonTargetAfterDamages
+  
+          if (pvPokemonTargetAfterDamages <= 0) {
+              console.log(pokemonTarget.name + " " + "est KO !")
+          } else {
+              console.log(`il reste à  ${pokemonTarget.name} ${pvPokemonTargetAfterDamages} points de vie`);
+          }
+
     }
 }

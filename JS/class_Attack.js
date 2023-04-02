@@ -4,7 +4,7 @@ export default class Attack {
         this.nbDamage = nbDamage;
     }
 
-    isCriticalAttack() {
+    ramdomCriticalAttack() {
         return Math.random() < 0.1;
     }
 }
